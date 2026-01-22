@@ -1,0 +1,16 @@
+Regras de negócio das entidades
+
+Atendimento:
+- A data de atendimento não pode ser menor que a data atual
+- Para criar um atendimento é necessário que o paciente já tenha sido cadastrado
+  e possua userId
+
+Paciente: 
+- Pacientes com idade abaixo de 18 devem ter nome de acompanhantes e número do acompanhante
+- O numero do Wpp deve ter 13 digitos no máximo
+    (Em planjamento para ser implementado)
+
+Evolução
+- A data de atendimento não pode ser menor que a data atual
+- Para criar uma evolução é necessário que o paciente já tenha sido cadastrado
+  e possua userId

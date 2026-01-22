@@ -1,0 +1,22 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+
+# PHP
+vendor/
+
+# Env
+.env
+.env.*
+
+# Docker
+*.log
+
+# Build
+dist/
+build/
+
+# OS / Editor
+.DS_Store
+.vscode/

@@ -1,0 +1,32 @@
+{ 
+    Ver a estrutura dos atendimentos e reformular as tabelas e as functions do atendimento 
+    Provavelmente é melhor usar alter table. 
+    Funções para serem alteradas: Update e delete
+    Pendente, 08-10-2025.
+}
+{ 
+    Ver a estrutura dos atendimentos e reformular as tabelas e as functions da evolução 
+    Provavelmente é melhor usar alter table. 
+    Funções para serem alteradas: Update e delete
+    Pendente, 08-10-2025.
+}
+{
+    Criar rotas dos CRUDS de atendimentos, evolução e pacientes
+    Pendente, 08-10-2025.
+}
+{
+    Criar entidades - atendimento evolução pacientes
+    Pendente, 16-01-2026.
+}  
+{
+    Criar adapters para criar entidades e depois chamar a função de adicionar ao DB
+    Pendente, 16-01-2026.
+}   
+{
+    Planejar o gateway
+    Pendente, 16-01-2026.
+}
+{
+    Melhorar a rotina de autenticação
+    Concluida, 20-01-2026
+}

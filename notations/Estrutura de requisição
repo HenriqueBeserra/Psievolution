@@ -1,0 +1,12 @@
+POST /users HTTP/1.1
+Host: api.exemplo.com
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+Accept: application/json
+User-Agent: Mozilla/5.0
+Content-Length: 123
+
+{
+  "name": "Henrique",
+  "email": "henrique@email.com"
+}

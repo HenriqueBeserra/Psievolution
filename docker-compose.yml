@@ -1,0 +1,12 @@
+name: psi_evo
+
+services:
+  pg:
+    image: bitnami/postgresql:14
+    ports:
+      - "5432:5432"
+
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=psievolution
