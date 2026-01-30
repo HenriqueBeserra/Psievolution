@@ -3,6 +3,7 @@ import formbody from '@fastify/formbody'
 import fastifyCors from '@fastify/cors'
 import { Index } from './routes/index'
 import { userAuth } from './routes/authentication/auth'
+import { createPacienteRoute } from './routes/api/create-pacient-route'
 
 const app = fastify()
 
@@ -16,6 +17,7 @@ app.register(formbody)
 // Routes
 app.register(Index)
 app.register(userAuth)
+app.register(createPacienteRoute)
 
 //Servidor execute
 app.listen({ port: 3333 }, (err, address) => {

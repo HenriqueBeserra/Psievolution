@@ -24,7 +24,7 @@
 		"formatter": {
 			"jsxQuoteStyle": "single",
 			"quoteStyle": "single",
-			"semicolons": "asNeeded"
+			"semicolons": "always"
 		}
 	},
 	"assist": {
