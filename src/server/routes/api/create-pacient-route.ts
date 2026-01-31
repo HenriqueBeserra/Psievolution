@@ -1,10 +1,19 @@
-import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod';
-import type { IPacient } from '../../../application_use-cases/interfaces/Pacient';
+/** biome-ignore-all assist/source/organizeImports: <Frescuraaa> */
+import { createPacientBodySchema } from '../../../infra/http/schemas/body-schema';
 import { createPacientController } from '../../../controllers/pacientes/create-pacient-controller';
+import type { FastifyPluginAsync } from 'fastify';
 
-export const createPacienteRoute: FastifyPluginAsyncZod = async (app) => {
-	app.post('/create_pacient', (req, reply) => {
-		const pacient = req.body as IPacient;
-		createPacientController(pacient, reply);
-	});
+export const createPacienteRoute: FastifyPluginAsync = async (app) => {
+	app.post(
+		'/create_pacient',
+		{
+			schema: {
+				body: createPacientBodySchema,
+			},
+		},
+		async (req, reply) => {
+			const result = await createPacientController(req.body);
+			reply.status(201).send({ message: 'Paciente Criado', result });
+		},
+	);
 };

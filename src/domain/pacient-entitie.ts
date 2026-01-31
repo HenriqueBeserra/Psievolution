@@ -1,15 +1,15 @@
-import type { IPacient } from '../interfaces/Pacient'
-import type { PacientInterface } from './entidade-interface'
+import type { IPacient } from '../application_use-cases/interfaces/Pacient';
+import type { PacientInterface } from './domain-interface';
 
 export class Pacient implements PacientInterface {
-	private idadeMinima: number = 18
+	private idadeMinima: number = 18;
 
 	createPacient(dados: IPacient) {
 		if (dados.idade < this.idadeMinima) {
 			if (!dados.nome_responsavel && !dados.contato_responsavel) {
 				throw new Error(
-					'Pacientes menores de idade precisam ter Nome e contato do responsável',
-				)
+					'Pacientes menores de idade precisam ter Nome e Contato do responsável',
+				);
 			}
 		}
 		return {
@@ -21,21 +21,21 @@ export class Pacient implements PacientInterface {
 			contato_responsavel: dados.contato_responsavel
 				? this.clearPhone(dados.contato_responsavel)
 				: undefined,
-		}
+		};
 	}
 
 	contatoIsValid(phone: string): boolean {
 		// biome-ignore lint/suspicious/noDoubleEquals: <Dont need this rule>
-		return phone.length == 10 || phone.length == 11
+		return phone.length == 10 || phone.length == 11;
 	}
 
 	clearPhone(phone: string) {
-		const phoneCleaned = phone.replace(/\D/g, '')
+		const phoneCleaned = phone.replace(/\D/g, '');
 
 		if (!this.contatoIsValid(phoneCleaned)) {
-			console.log('Erro ao validar numero')
-			throw new Error('Número de telefone invalido')
+			console.log('Erro ao validar numero');
+			throw new Error('Número de telefone invalido');
 		}
-		return phoneCleaned
+		return phoneCleaned;
 	}
 }
