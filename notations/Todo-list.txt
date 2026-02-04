@@ -2,12 +2,17 @@
     Criar rotas dos CRUDS de atendimentos, evolução e pacientes
     Pendente, 08-10-2025.
 }
-  
 {
-    Criar adapters para criar entidades e depois chamar a função de adicionar ao DB
-    Pendente, 16-01-2026.
-}   
+    Adicionar uma verificação, Verificar se existe o usuário antes de cria-lo
+}
+{
+    Planejar a criptografia de dados sensíveis do usuário dentro do domain
+    Pendente, 03-02-2026.
+}
+
+    
 {
     Planejar o gateway
     Pendente, 16-01-2026.
+    Tarefa cancelada, 30-01-2026
 }

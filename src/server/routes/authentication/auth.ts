@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
-import { authController } from '../../../controllers/auth/authentication'
+import { authController } from '../../../controllers/auth/authentication-controller'
 dotenv.config()
 
 export const userAuth: FastifyPluginAsyncZod = async (app) => {

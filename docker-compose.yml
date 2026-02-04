@@ -2,7 +2,7 @@ name: psi_evo
 
 services:
   pg:
-    image: bitnami/postgresql:14
+    image: bitnami/postgresql
     ports:
       - "5432:5432"
 

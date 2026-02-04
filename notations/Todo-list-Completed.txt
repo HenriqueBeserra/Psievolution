@@ -21,3 +21,9 @@
     Pendente, 16-01-2026.
     Concluida, 16-01-2026.
 }
+ 
+{
+    Criar adapters para criar entidades e depois chamar a função de adicionar ao DB
+    Pendente, 16-01-2026.
+    Concluída, 30-01-2026
+}

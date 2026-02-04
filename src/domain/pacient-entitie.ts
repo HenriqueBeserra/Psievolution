@@ -1,4 +1,4 @@
-import type { IPacient } from '../application_use-cases/interfaces/Pacient';
+import type { IPacient } from '../service-paciente/interface/Pacient';
 import type { PacientInterface } from './domain-interface';
 
 export class Pacient implements PacientInterface {
@@ -12,15 +12,23 @@ export class Pacient implements PacientInterface {
 				);
 			}
 		}
+
+		//{
+			//Pensar sobre criptografar os dados para inserir os dados criptografados no banco
+		//{
+
 		return {
-			nome: dados.nome,
-			idade: dados.idade,
-			email: dados.email,
-			whats: this.clearPhone(dados.whats),
-			nome_responsavel: dados.nome_responsavel,
-			contato_responsavel: dados.contato_responsavel
-				? this.clearPhone(dados.contato_responsavel)
-				: undefined,
+			succcess: true,
+			pacient: {
+				nome: dados.nome,
+				idade: dados.idade,
+				email: dados.email,
+				whats: this.clearPhone(dados.whats),
+				nome_responsavel: dados.nome_responsavel,
+				contato_responsavel: dados.contato_responsavel
+					? this.clearPhone(dados.contato_responsavel)
+					: undefined,
+			},
 		};
 	}
 

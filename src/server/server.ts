@@ -5,7 +5,8 @@ import formbody from '@fastify/formbody';
 import type { ZodTypeProvider } from 'fastify-type-provider-zod';
 
 import { userAuth } from './routes/authentication/auth';
-import { createPacienteRoute } from './routes/api/create-pacient-route';
+import { createPacienteRoute } from './routes/pacient-api/create-pacient-route';
+import { getPacientRoute } from './routes/pacient-api/get-pacient-route';
 import { Index } from './routes/index';
 import { validatorCompiler, serializerCompiler } from 'fastify-type-provider-zod';
 
@@ -25,6 +26,7 @@ app.register(formbody);
 app.register(Index);
 app.register(userAuth);
 app.register(createPacienteRoute);
+app.register(getPacientRoute);
 
 //Servidor execute
 app.listen({ port: 3333 }, (err, address) => {

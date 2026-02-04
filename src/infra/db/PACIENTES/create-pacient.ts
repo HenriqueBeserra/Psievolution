@@ -1,6 +1,7 @@
-import { db } from '../db-index'
-import { pacientes } from '../schema'
-import type { IPacient } from '../../interfaces/Pacient'
+/** biome-ignore-all assist/source/organizeImports: <rule not important> */
+import { db } from '../db-index';
+import { pacientes } from '../schema';
+import type { IPacient } from '../../../application_use-cases/interfaces/Pacient';
 
 export async function createPacient({
 	nome,
@@ -23,18 +24,23 @@ export async function createPacient({
 					contato_responsavel,
 				},
 			])
-			.returning()
+			.returning();
 
-		return result[0]
+		return {
+			success: true,
+			message: 'Paciente criado',
+			status: '201',
+			data: result[0],
+		};
 	} catch (erro) {
-		console.error('Falha ao criar paciente', erro)
-		return { Message: 'Falha ao criar paciente', erro }
+		console.error('Falha ao criar paciente', erro);
+		return { Message: 'Falha ao criar paciente', erro };
 	}
 }
 
-createPacient({
-	nome: 'Nivanildo Henrique Beserra da silva',
-	idade: 25,
-	email: 'beserrahnrq@gmail.com',
-	whats: '81995562223',
-})
+// createPacient({
+// 	nome: 'Nivanildo Henrique Beserra da silva',
+// 	idade: 25,
+// 	email: 'beserrahnrq@gmail.com',
+// 	whats: '81995562223',
+// });
