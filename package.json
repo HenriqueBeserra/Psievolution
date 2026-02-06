@@ -13,6 +13,7 @@
 		"get-psi": "tsx src/infra/db/get-psi",
 		"insert": "tsx src/infra/db/PACIENTES/create-pacient",
 		"get": "tsx src/infra/db/PACIENTES/get-pacient-psi",
+		"get-evolution": "tsx src/infra/db/EVOLUCAO/get-evolucao-psi",
 		"update": "tsx src/functions/CRUD/update-pacient-psi",
 		"create-pacient": "tsx src/infra/db/PACIENTES/create-pacient",
 		"hash": "tsx src/infra/crypto/Encrypt"

@@ -1,7 +1,7 @@
 /** biome-ignore-all assist/source/organizeImports: <Dont need this rule here> */
-import type { IPacient } from '../application_use-cases/interfaces/Pacient';
-import type { IAtendimento } from '../application_use-cases/interfaces/Atendimento';
-import type { IEvolucao } from '../application_use-cases/interfaces/Evolucao';
+import type { IPacient } from '../service-paciente/interface/Pacient';
+import type { IAtendimento } from '../service-atendimento/interface/Atendimento';
+import type { IEvolucao } from '../service-evolução/interface/Evolucao';
 
 interface CreatedPacientDomain {
 	succcess: boolean;
