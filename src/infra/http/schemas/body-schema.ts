@@ -8,3 +8,10 @@ export const createPacientBodySchema = z.object({
 	nome_responsavel: z.string().optional(),
 	contato_responsavel: z.string().optional(),
 });
+
+export const createEvolucaoBodySchema = z.object({
+	nome: z.string(),
+	descricao: z.string(),
+	data_criacao: z.string(),
+	userId: z.string() || z.undefined,
+});

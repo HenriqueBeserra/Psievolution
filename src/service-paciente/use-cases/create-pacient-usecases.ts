@@ -3,32 +3,25 @@
 /** biome-ignore-all assist/source/organizeImports: <rule not important here> */
 import { createPacient } from '../../infra/db/PACIENTES/create-pacient';
 import type { IPacient } from '../interface/Pacient';
-import { Pacient } from '../../domain/pacient-entitie';
 import { getPacientByName } from '../../infra/db/PACIENTES/get-pacient-psi';
+import type { PacientInterface } from '../../domain/domain-interface';
+type factory = () => PacientInterface;
 
-function engineCreatorPacient() {
-	const creator = new Pacient();
-	return creator;
+async function pacientExists(pacient: IPacient) {
+	const pacientEx = await getPacientByName(pacient.nome);
+	return pacientEx.success; //Retorna true ou false
 }
 
-
-async function pacientExists(pacient: IPacient){
-	const pacientEx = await getPacientByName(pacient)
-	if(pacientEx.success === true){
-		return true
+export async function createPacientUsecase(
+	pacient: IPacient,
+	engineCreatorPacient: factory,
+) {
+	const pacientValidated = await pacientExists(pacient);
+	if (pacientValidated === true) {
+		console.log(pacientValidated);
+		throw new Error('Paciente já existe!');
 	}
-	return false
 
-}
-
-export async function createPacientUsecase(pacient: IPacient) {
-	
-	const pacientValidated = await pacientExists(pacient)
-	if(pacientValidated===true){
-		console.log(pacientValidated)
-		throw new Error('Paciente já existe!')
-	}
-	
 	//instanciando a classe passiente e chamando a regra de negócio
 	const creatorOfPacient = engineCreatorPacient();
 	const entitiePacientCreated = creatorOfPacient.createPacient(pacient);

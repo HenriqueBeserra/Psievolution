@@ -1,6 +1,7 @@
-import { db } from '../../db/db-index'
-import { evolucao } from '../../db/schema'
-import type { IEvolucao } from '../../interfaces/Evolucao'
+/** biome-ignore-all assist/source/organizeImports: <rule not important> */
+import { db } from '../../db/db-index';
+import { evolucao } from '../../db/schema';
+import type { IEvolucao } from '../../../service-evolução/interface/Evolucao';
 
 export async function createEvolucao({
 	nome,
@@ -9,6 +10,9 @@ export async function createEvolucao({
 	userId,
 }: IEvolucao) {
 	try {
+		if (!userId) {
+			throw new Error('Id não encontrado');
+		}
 		const result = await db
 			.insert(evolucao)
 			.values([
@@ -19,18 +23,18 @@ export async function createEvolucao({
 					userId,
 				},
 			])
-			.returning()
+			.returning();
 
-		return result[0]
+		return { succes: true, resultado: result[0] };
 	} catch (erro) {
-		console.error('Falha ao criar Evolução', erro)
-		return { Message: 'Falha ao criar Evolução', erro }
+		console.error('Falha ao criar Evolução', erro);
+		throw new Error('Falha ao criar Evolução');
 	}
 }
 
-// createPacient({
-// 	nome:'Nivanildo Henrique Beserra da silva',
-// 	idade: 25,
-// 	email: 'beserrahnrq@gmail.com',
-// 	whats:'81995562223'
-// })
+// modelo = {
+// nome: "João Jose da Silva",
+// descriçao: "Aqui vem uma série de textos que não consigo afirmar agoa com precisão o que é mas são longos"
+// data_criação: hoje,
+// userId: userid
+// }

@@ -1,7 +1,7 @@
 /** biome-ignore-all assist/source/organizeImports: <rule not important> */
 import { db } from '../../db/db-index';
 import { pacientes } from '../../db/schema';
-import type { IPacient } from '../../../service-paciente/interface/Pacient'
+import type { IPacient } from '../../../service-paciente/interface/Pacient';
 import { eq } from 'drizzle-orm';
 
 export async function getPacient() {
@@ -15,17 +15,15 @@ export async function getPacient() {
 	}
 }
 
-export async function getPacientByName({ nome }: IPacient) {
+export async function getPacientByName(nome: string) {
 	try {
 		const result = await db.select().from(pacientes).where(eq(pacientes.nome, nome));
-		if(result.length === 0){
-			return {success: false,  message: 'Nenhum paciente encontrado' };
+		if (result.length === 0) {
+			return { success: false, message: 'Nenhum paciente encontrado' };
 		}
-		return {success: true,  message: result};
+		return { success: true, message: result };
 	} catch (error) {
 		console.error(error);
-		return {success: false,  message: 'Erro ao buscar pacientes' };
+		return { success: false, message: 'Erro ao buscar pacientes' };
 	}
 }
-
-
