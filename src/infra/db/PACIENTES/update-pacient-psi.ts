@@ -1,16 +1,17 @@
-import { db } from '../../db/db-index'
-import { pacientes } from '../../db/schema'
-import { eq } from 'drizzle-orm'
-import type { IPacient } from '../../domain/interfaces/Pacient'
+import { db } from '../../db/db-index';
+import { pacientes } from '../../db/schema';
+import { eq } from 'drizzle-orm';
+import type { IPacient } from '../../../service-paciente/interface/Pacient';
 
 export async function updatePacient(id: string, data: Partial<IPacient>) {
 	try {
 		//Filtragem dos campos undefined, para não precisar passar todos os campos e sim só os que vão ser alterados
 		const updates = Object.fromEntries(
-			Object.entries(data).filter((_, value) => value !== undefined),
-		)
+			Object.entries(data).filter((_, value) => ( value !== undefined)),
+		);
+		console.log(`Updates = ${updates}`)
 		if (Object.keys(updates).length === 0) {
-			return { Message: 'Nenhum dado para ser alterado' }
+			return { Message: 'Nenhum dado para ser alterado' };
 		}
 
 		//Fazendo o update
@@ -18,11 +19,11 @@ export async function updatePacient(id: string, data: Partial<IPacient>) {
 			.update(pacientes)
 			.set(updates)
 			.where(eq(pacientes.id, id))
-			.returning()
-		return result[0]
+			.returning();
+		return result[0];
 	} catch (erro) {
-		console.error(erro)
-		return erro
+		console.error(erro);
+		return erro;
 	}
 }
 

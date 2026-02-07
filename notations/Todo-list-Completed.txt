@@ -27,3 +27,8 @@
     Pendente, 16-01-2026.
     Concluída, 30-01-2026
 }
+{
+    Adicionar uma verificação, Verificar se existe o usuário antes de cria-lo
+    Pendente, 03-02-2026.
+    Concluida, 05-02-2026.
+}

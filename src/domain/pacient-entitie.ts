@@ -4,7 +4,7 @@ import type { PacientInterface } from './domain-interface';
 export class Pacient implements PacientInterface {
 	private idadeMinima: number = 18;
 
-	createPacient(dados: IPacient) {
+	public createPacient(dados: IPacient) {
 		if (dados.idade < this.idadeMinima) {
 			if (!dados.nome_responsavel && !dados.contato_responsavel) {
 				throw new Error(
@@ -32,12 +32,12 @@ export class Pacient implements PacientInterface {
 		};
 	}
 
-	contatoIsValid(phone: string): boolean {
+	private contatoIsValid(phone: string): boolean {
 		// biome-ignore lint/suspicious/noDoubleEquals: <Dont need this rule>
 		return phone.length == 10 || phone.length == 11;
 	}
 
-	clearPhone(phone: string) {
+	private clearPhone(phone: string) {
 		const phoneCleaned = phone.replace(/\D/g, '');
 
 		if (!this.contatoIsValid(phoneCleaned)) {

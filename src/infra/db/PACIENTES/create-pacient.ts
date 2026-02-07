@@ -1,7 +1,7 @@
 /** biome-ignore-all assist/source/organizeImports: <rule not important> */
 import { db } from '../db-index';
 import { pacientes } from '../schema';
-import type { IPacient } from '../../../application_use-cases/interfaces/Pacient';
+import type { IPacient } from '../../../service-paciente/interface/Pacient';
 
 export async function createPacient({
 	nome,
@@ -33,7 +33,6 @@ export async function createPacient({
 			data: result[0],
 		};
 	} catch (erro) {
-		console.error('Falha ao criar paciente', erro);
 		return { Message: 'Falha ao criar paciente', erro };
 	}
 }

@@ -10,6 +10,12 @@ export class Encrypt {
         return isValid
     }
 }
+// import path from 'path'
+
+// const caminho = path.resolve(process.cwd(), 'src/assets/evolucao-paciente-test.txt')
+
+// console.log(caminho)
+
 
 
 //Teste de funcionamento

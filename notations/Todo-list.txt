@@ -2,9 +2,7 @@
     Criar rotas dos CRUDS de atendimentos, evolução e pacientes
     Pendente, 08-10-2025.
 }
-{
-    Adicionar uma verificação, Verificar se existe o usuário antes de cria-lo
-}
+
 {
     Planejar a criptografia de dados sensíveis do usuário dentro do domain
     Pendente, 03-02-2026.

@@ -10,6 +10,7 @@ import { createEvolution } from './routes/evolucao-api/create-evolucao-route';
 import { getPacientRoute } from './routes/pacient-api/get-pacient-route';
 import { Index } from './routes/index';
 import { validatorCompiler, serializerCompiler } from 'fastify-type-provider-zod';
+import { updatePacientRoute } from './routes/pacient-api/update-pacient-route';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 //Config
@@ -29,6 +30,7 @@ app.register(userAuth);
 app.register(createPacienteRoute);
 app.register(getPacientRoute);
 app.register(createEvolution);
+app.register(updatePacientRoute);
 
 //Servidor execute
 app.listen({ port: 3333 }, (err, address) => {

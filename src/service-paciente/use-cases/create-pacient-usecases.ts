@@ -4,13 +4,11 @@
 import { createPacient } from '../../infra/db/PACIENTES/create-pacient';
 import type { IPacient } from '../interface/Pacient';
 import { getPacientByName } from '../../infra/db/PACIENTES/get-pacient-psi';
+import { pacientExists } from '../../application_use-cases/pacient-exists-usecase';
 import type { PacientInterface } from '../../domain/domain-interface';
 type factory = () => PacientInterface;
 
-async function pacientExists(pacient: IPacient) {
-	const pacientEx = await getPacientByName(pacient.nome);
-	return pacientEx.success; //Retorna true ou false
-}
+
 
 export async function createPacientUsecase(
 	pacient: IPacient,
