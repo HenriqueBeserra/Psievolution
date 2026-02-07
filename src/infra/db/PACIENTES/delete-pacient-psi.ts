@@ -2,7 +2,7 @@ import { db } from '../../db/db-index'
 import { pacientes } from '../../db/schema'
 import { eq } from 'drizzle-orm'
 
-export async function deletPacient(id: string) {
+export async function deletePacient(id: string) {
 	try {
 		const result = await db.delete(pacientes).where(eq(pacientes.id, id)).returning()
 

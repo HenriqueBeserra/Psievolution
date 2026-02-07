@@ -11,6 +11,7 @@ import { getPacientRoute } from './routes/pacient-api/get-pacient-route';
 import { Index } from './routes/index';
 import { validatorCompiler, serializerCompiler } from 'fastify-type-provider-zod';
 import { updatePacientRoute } from './routes/pacient-api/update-pacient-route';
+import { deletePacientRoute } from './routes/pacient-api/delete-pacient-route';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 //Config
@@ -25,12 +26,19 @@ app.register(fastifyCors, {
 app.register(formbody);
 
 // Routes
+////Pacient
 app.register(Index);
 app.register(userAuth);
 app.register(createPacienteRoute);
 app.register(getPacientRoute);
-app.register(createEvolution);
 app.register(updatePacientRoute);
+app.register(deletePacientRoute)
+
+////Evolution
+app.register(createEvolution);
+
+////Atendimento
+
 
 //Servidor execute
 app.listen({ port: 3333 }, (err, address) => {
