@@ -9,6 +9,7 @@ const userTest: UserLogin = {
 	password: '102030',
 }
 
+//Verifica se o Usuário é 
 export function UserAuth(user: UserLogin, isc: string | undefined) {
 	const validEmail = isValidEmail(user.login)
 	const clearedPassword = clearPassowrd(user.password)

@@ -1,11 +1,13 @@
 {
     Criar rotas dos CRUDS de atendimentos, evolução e pacientes
     Pendente, 08-10-2025.
+    Andamento, 11-02-2026 ( Rotas de Pacientes concluídas, pendentes apenas evolução e atendimentos )
 }
 
 {
     Planejar a criptografia de dados sensíveis do usuário dentro do domain
     Pendente, 03-02-2026.
+    Andamento, 10-03-2026
 }
 
     

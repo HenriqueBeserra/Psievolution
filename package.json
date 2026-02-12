@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "tsx watch src/server/server.ts",
-		"lint": "biome lint",
+		"lint": "biome check .",
 		"format": "biome format --write .",
 		"check": "biome check --write .",
 		"seed": "tsx --env-file .env src/infra/db/seed.ts",
