@@ -27,6 +27,10 @@ export const anamnese = pgTable('anamnese', {
 })
 
 export const evolucao = pgTable('evolucao', {
+	id: text("id")
+    .primaryKey()
+    .$defaultFn(() => createId()),
+
 	nome: text('nome').notNull(),
 	descricao: text('descricao').notNull(),
 	data_criacao: timestamp('data_criacao'),

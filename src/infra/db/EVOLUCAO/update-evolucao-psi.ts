@@ -1,9 +1,9 @@
-import { db } from '../../db/db-index'
-import { pacientes } from '../../db/schema'
+import { db } from '../db-index'
+import { evolucao } from '../schema'
 import { eq } from 'drizzle-orm'
-import type { IPacient } from '../../interfaces/Pacient'
+import type { IEvolucao } from '../../../service-evolução/interface/Evolucao'
 
-export async function updatePacient(id: string, data: Partial<IPacient>) {
+export async function updateEvolucao(id: string, data: Partial<IEvolucao>) {
 	try {
 		//Filtragem dos campos undefined, para não precisar passar todos os campos e sim só os que vão ser alterados
 		const updates = Object.fromEntries(
@@ -14,7 +14,7 @@ export async function updatePacient(id: string, data: Partial<IPacient>) {
 		}
 
 		//Fazendo o update
-		const result = await db.update(pacientes).set(updates).where(eq(pacientes.id, id)).returning()
+		const result = await db.update(evolucao).set(updates).where(eq(evolucao.id, id)).returning()
 		return result[0]
 	} catch (erro) {
 		console.error(erro)

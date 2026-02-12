@@ -6,16 +6,11 @@ export class Encrypt {
         return informationHashed
     }
     async validHash(hash: string, data: string): Promise<boolean>{
-        const isValid = agrHashEngine.verify(hash, data)
+        const isValid = await agrHashEngine.verify(hash, data)
         return isValid
     }
+ 
 }
-// import path from 'path'
-
-// const caminho = path.resolve(process.cwd(), 'src/assets/evolucao-paciente-test.txt')
-
-// console.log(caminho)
-
 
 
 //Teste de funcionamento
