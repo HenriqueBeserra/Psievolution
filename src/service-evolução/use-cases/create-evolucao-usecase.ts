@@ -23,8 +23,9 @@ export async function createEvolucaoUseCase(
 
 	//Instancia do domínio para executar as regras de negócio
 	const engineEvolucaoCreator = createEvolucaoDomain();
-	const { nome, descricao, data_criacao, userId } =
-		engineEvolucaoCreator.createEvolucao(evolution);
+	const { nome, descricao, data_criacao, userId } = engineEvolucaoCreator.createEvolucao(evolution);
+
+	//Inserindo no BD
 	const evolutionInsertedAtDb = await createEvolucao({
 		nome,
 		descricao,
