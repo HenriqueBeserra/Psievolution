@@ -4,7 +4,7 @@ import { createEvolucaoBodySchema } from '../../../infra/http/schemas/body-schem
 import { createEvolucaoController } from '../../../service-evolução/controllers/create-evolucao-controller';
 import type { IEvolucao } from '../../../service-evolução/interface/Evolucao';
 
-export const createEvolution: FastifyPluginAsync = async (app) => {
+export const createEvolutionRoute: FastifyPluginAsync = async (app) => {
 	app.post(
 		'/create_evolution',
 		{
