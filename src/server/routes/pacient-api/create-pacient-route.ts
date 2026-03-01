@@ -14,8 +14,22 @@ export const createPacienteRoute: FastifyPluginAsync = async (app) => {
 			preHandler: verifyToken,
 		},
 		async (req, reply) => {
-			const result = await createPacientController(req.body);
-			reply.status(201).send({ result });
+			try {
+				const result = await createPacientController(req.body);
+				return reply.status(201).send({ result });
+			} catch (err: unknown) {
+				const message = err instanceof Error ? err.message : 'Erro ao criar paciente';
+				const cause = err instanceof Error && 'cause' in err ? String((err as { cause?: unknown }).cause ?? '') : '';
+				const isConflict = message.includes('já existe');
+				const isDbError =
+					message.includes('Failed query') ||
+					cause.includes('ENOTFOUND') ||
+					cause.includes('ECONNRESET') ||
+					cause.includes('ECONNREFUSED');
+				if (isConflict) return reply.status(409).send({ ok: false, message });
+				if (isDbError) return reply.status(503).send({ ok: false, message: 'Serviço temporariamente indisponível. Verifique sua conexão com a internet.' });
+				return reply.status(500).send({ ok: false, message });
+			}
 		},
 	);
 };

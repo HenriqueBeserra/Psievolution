@@ -16,14 +16,20 @@ import { getEvolutionRoute } from './routes/evolucao-api/get-evolucao-route';
 import { deleteEvolutionRoute } from './routes/evolucao-api/delete-evolucao-route';
 import { updateEvolutionRoute } from './routes/evolucao-api/update-evolucao-route';
 
+
+
 const app = fastify().withTypeProvider<ZodTypeProvider>();
+
 //Config
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
 //Cors
 app.register(fastifyCors, {
-	origin: '*',
+	origin:  "http://localhost:5173",
+	methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+	allowedHeaders: ["Content-Type", "Authorization"],
+	credentials: true
 });
 
 app.register(formbody);
