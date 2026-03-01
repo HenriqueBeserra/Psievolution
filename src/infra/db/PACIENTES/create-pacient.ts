@@ -1,5 +1,6 @@
 /** biome-ignore-all assist/source/organizeImports: <rule not important> */
-import { db } from '../db-index';
+//import { db } from '../db-index';
+import { dbOnlineForDevelopment } from '../../dbOnline/db-online-index';
 import { pacientes } from '../schema';
 import type { IPacient } from '../../../service-paciente/interface/Pacient';
 
@@ -12,7 +13,7 @@ export async function createPacient({
 	contato_responsavel,
 }: IPacient) {
 	try {
-		const result = await db
+		const result = await dbOnlineForDevelopment
 			.insert(pacientes)
 			.values([
 				{

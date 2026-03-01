@@ -1,5 +1,6 @@
 /** biome-ignore-all assist/source/organizeImports: <rule not important> */
-import { db } from '../../db/db-index';
+// import { db } from '../../db/db-index';
+import { dbOnlineForDevelopment } from '../../dbOnline/db-online-index';
 import { evolucao } from '../../db/schema';
 import type { IEvolucao } from '../../../service-evolução/interface/Evolucao';
 
@@ -13,7 +14,7 @@ export async function createEvolucao({
 		if (!userId) {
 			throw new Error('Id não encontrado');
 		}
-		const result = await db
+		const result = await dbOnlineForDevelopment
 			.insert(evolucao)
 			.values([
 				{
