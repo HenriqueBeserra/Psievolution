@@ -1,4 +1,5 @@
-import { db } from '../../db/db-index';
+// import { db } from '../../db/db-index';
+import { dbOnlineForDevelopment } from '../../dbOnline/db-online-index';
 import { pacientes } from '../../db/schema';
 import { eq } from 'drizzle-orm';
 import type { IPacient } from '../../../service-paciente/interface/Pacient';
@@ -15,7 +16,7 @@ export async function updatePacient(id: string, data: Partial<IPacient>) {
 		}
 
 		//Fazendo o update
-		const result = await db
+		const result = await dbOnlineForDevelopment
 			.update(pacientes)
 			.set(updates)
 			.where(eq(pacientes.id, id))

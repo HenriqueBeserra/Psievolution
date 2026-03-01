@@ -1,10 +1,11 @@
-import { db } from '../../db/db-index'
+//import { db } from '../../db/db-index'
+import { dbOnlineForDevelopment } from '../../dbOnline/db-online-index'
 import { pacientes } from '../../db/schema'
 import { eq } from 'drizzle-orm'
 
 export async function deletePacient(id: string) {
 	try {
-		const result = await db.delete(pacientes).where(eq(pacientes.id, id)).returning()
+		const result = await dbOnlineForDevelopment.delete(pacientes).where(eq(pacientes.id, id)).returning()
 
 		if (result.length === 0) {
 			return { message: 'Paciente não encontrado' }

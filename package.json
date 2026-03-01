@@ -16,7 +16,11 @@
 		"get-evolution": "tsx src/infra/db/EVOLUCAO/get-evolucao-psi",
 		"update": "tsx src/functions/CRUD/update-pacient-psi",
 		"create-pacient": "tsx src/infra/db/PACIENTES/create-pacient",
-		"hash": "tsx src/infra/crypto/Encrypt"
+		"hash": "tsx src/infra/crypto/Encrypt",
+		"db:generate": "drizzle-kit generate --config=drizzle.config.ts",
+		"db:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
+		"db:push": "drizzle-kit push --config=drizzle.config.ts",
+		"db:studio": "drizzle-kit studio --config=drizzle.config.ts"
 	},
 	"dependencies": {
 		"@fastify/cors": "^11.1.0",

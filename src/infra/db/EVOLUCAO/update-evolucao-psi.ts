@@ -1,4 +1,5 @@
-import { db } from '../db-index'
+// import { db } from '../db-index'
+import { dbOnlineForDevelopment } from '../../dbOnline/db-online-index';
 import { evolucao } from '../schema'
 import { eq } from 'drizzle-orm'
 import type { IEvolucao } from '../../../service-evolução/interface/Evolucao'
@@ -14,7 +15,7 @@ export async function updateEvolucao(id: string, data: Partial<IEvolucao>) {
 		}
 
 		//Fazendo o update
-		const result = await db.update(evolucao).set(updates).where(eq(evolucao.id, id)).returning()
+		const result = await dbOnlineForDevelopment.update(evolucao).set(updates).where(eq(evolucao.id, id)).returning()
 		return result[0]
 	} catch (erro) {
 		console.error(erro)

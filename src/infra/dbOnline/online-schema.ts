@@ -46,6 +46,7 @@ export const atendimentos = pgTable('atendimentos', {
 	data_atendimento: text('data_atendimento').notNull(),
 	horario: text('horario').notNull(),
 	status: text('status').notNull(),
+	created_at: timestamp('created_at').defaultNow(),
 	userId: text('userId')
 		.notNull()
 		.references(() => pacientes.id, {

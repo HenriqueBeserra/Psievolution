@@ -1,11 +1,12 @@
-import { db } from '../db-index';
+// import { db } from '../db-index';
+import { dbOnlineForDevelopment } from '../../dbOnline/db-online-index';
 import { evolucao } from '../schema';
 import type { IEvolucao } from '../../../service-evolução/interface/Evolucao';
 import { eq } from 'drizzle-orm';
 
 export async function getEvolucao() {
 	try {
-		const result = await db.select().from(evolucao);
+		const result = await dbOnlineForDevelopment.select().from(evolucao);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -15,7 +16,7 @@ export async function getEvolucao() {
 
 export async function getEvoluçaoByName({ nome }: IEvolucao) {
 	try {
-		const result = await db.select().from(evolucao).where(eq(evolucao.nome, nome));
+		const result = await dbOnlineForDevelopment.select().from(evolucao).where(eq(evolucao.nome, nome));
 
 		return result[0];
 	} catch (error) {
